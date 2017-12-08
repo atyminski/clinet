@@ -1,4 +1,5 @@
-﻿using Gevlee.Clinet.Core.Command;
+﻿using System.Collections.Generic;
+using Gevlee.Clinet.Core.Command;
 
 namespace Gevlee.Clinet.Core.Flag
 {
@@ -13,7 +14,8 @@ namespace Gevlee.Clinet.Core.Flag
 
 		public void Apply(CommandContext commandContext, FlagData data)
 		{
-			throw new System.NotImplementedException();
+			
+			((IDictionary<string, object>)commandContext.Data).Add(key, data.Value);
 		}
 	}
 }

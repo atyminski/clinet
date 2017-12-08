@@ -9,16 +9,16 @@ namespace Gevlee.Clinet.Core.Tests.Flag
 	public class ContextDataFlagTest
 	{
 		[Theory, AutoData]
-		public void Apply_ShouldSet_DataToContext(string key, string value)
+		public void Apply_ShouldSet_DataToContext(string value)
 		{
-			var flag = GetObject(key);
+			var flag = GetObject("Test");
 			var context = new CommandContext();
 			flag.Apply(context, new FlagData
 			{
 				Value = value
 			});
 
-			context.Data[key].ShouldBeEquivalentTo(value);
+			((string)context.Data.Test).ShouldBeEquivalentTo(value);
 		}
 
 		private ContextDataFlag GetObject(string key)
