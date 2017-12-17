@@ -16,6 +16,8 @@ namespace Gevlee.Clinet.Core.Command
 
 		public dynamic Data { get; }
 
+		internal IDictionary<string, object> DataDictionary => (IDictionary<string, object>) Data;
+
 		public string[] Args { get; internal set; }
 
 		public bool ShouldRun { get; set; }

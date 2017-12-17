@@ -14,8 +14,7 @@ namespace Gevlee.Clinet.Core.Flag
 
 		public void Apply(CommandContext commandContext, FlagData data)
 		{
-			
-			((IDictionary<string, object>)commandContext.Data).Add(key, data.Value);
+			commandContext.DataDictionary.Add(key, data.Value);
 		}
 	}
 }
