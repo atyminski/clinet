@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
-using Gevlee.Clinet.Core.Flag;
 
 namespace Gevlee.Clinet.Core.Command
 {

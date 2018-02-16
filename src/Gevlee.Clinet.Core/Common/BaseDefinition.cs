@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gevlee.Clinet.Core.Common
+﻿namespace Gevlee.Clinet.Core.Common
 {
 	public abstract class BaseDefinition
 	{
@@ -9,7 +7,5 @@ namespace Gevlee.Clinet.Core.Common
 		public string Long { get; set; }
 
 		public string Description { get; set; }
-
-		public Type TargetType { get; set; }
 	}
 }
