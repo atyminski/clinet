@@ -1,6 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Clinet</PackageId>
+    <Authors>gevlee</Authors>
+    <Company />
+    <Product>Clinet</Product>
+    <Copyright>gevlee</Copyright>
+    <Description>.NET Standard 2.0 library for build command-line interface appliactions</Description>
+    <PackageLicenseUrl>https://github.com/gevlee/clinet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/gevlee/clinet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/gevlee/clinet</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <AssemblyName>Clinet</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
