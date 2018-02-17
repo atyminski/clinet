@@ -38,7 +38,7 @@ namespace Gevlee.Clinet.Core
 
                         string flagValue = null;
                         var flag = mainCommandDefinition.Flags[flagDefinition];
-                        if (flagDefinition.HasValue)
+                        if (flagDefinition.CanHasValue)
                         {
                             i++;
                             flagValue = args[i];

@@ -6,11 +6,15 @@ namespace Gevlee.Clinet.Core.Command
 {
 	public class CommandDefinition : BaseDefinition
 	{
-		public CommandDefinition()
+		public CommandDefinition(string shortName, string longName) : base(shortName, longName)
 		{
 			Flags = new Dictionary<FlagDefinition, IFlag>();
 		}
 
+		public CommandDefinition() : this(null, null)
+		{	
+		}
+		
 		public IDictionary<FlagDefinition, IFlag> Flags { get; }
 	}
 }
