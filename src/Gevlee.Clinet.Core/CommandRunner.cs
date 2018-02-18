@@ -27,6 +27,7 @@ namespace Gevlee.Clinet.Core
             {
                 var flag = descriptionResult.CommandDefinition.Flags.Single(x =>
                     x.Key.NameEquals(descriptionResultFlagsValue.Key)).Value;
+
                 flag.Apply(commandContext, new FlagData
                 {
                     Value = descriptionResultFlagsValue.Key
