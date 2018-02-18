@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Gevlee.Clinet.Core.Command;
 using Gevlee.Clinet.Core.Flag;
@@ -95,6 +96,77 @@ namespace Gevlee.Clinet.Core.Tests.Parsing
             };
 
             Assert.Throws<FlagValueNotFoundException>(() => CreateObject(commandDefinitions).Describe(args));
+        }
+
+        [Fact]
+        public void Describe_ShoultReturn_DescriptionResultWithCommandAndOneValueFlagAndOneNonValueFlag()
+        {
+            var args = new[] { "testCommand", "-q", "-f", "f1Value" };
+            var commandDefinitions = new[]
+            {
+                new CommandDefinition("t1", "TestCommand")
+                {
+                    Flags =
+                    {
+                        {
+                            new FlagDefinition("f", null)
+                            {
+                                CanHasValue = true
+                            },
+                            null
+                        },
+                        {
+                            new FlagDefinition("q", null)
+                            {
+                                CanHasValue = false
+                            },
+                            null
+                        }
+                    }
+                }
+            };
+
+            var result = CreateObject(commandDefinitions).Describe(args);
+
+            result.CommandDefinition.ShouldBeEquivalentTo(commandDefinitions[0]);
+            result.FlagsValues["f"].ShouldBeEquivalentTo("f1Value");
+            result.FlagsValues["q"].ShouldBeEquivalentTo(null);
+        }
+
+        [Fact]
+        public void Describe_ShoultReturn_DescriptionResultWithCommandAndOneValueFlagAndOneNonValueFlagAndCommandArgs()
+        {
+            var args = new[] { "testCommand", "-q", "-f", "f1Value", "commandValue"};
+            var commandDefinitions = new[]
+            {
+                new CommandDefinition("t1", "TestCommand")
+                {
+                    Flags =
+                    {
+                        {
+                            new FlagDefinition("f", null)
+                            {
+                                CanHasValue = true
+                            },
+                            null
+                        },
+                        {
+                            new FlagDefinition("q", null)
+                            {
+                                CanHasValue = false
+                            },
+                            null
+                        }
+                    }
+                }
+            };
+
+            var result = CreateObject(commandDefinitions).Describe(args);
+
+            result.CommandDefinition.ShouldBeEquivalentTo(commandDefinitions[0]);
+            result.FlagsValues["f"].ShouldBeEquivalentTo("f1Value");
+            result.FlagsValues["q"].ShouldBeEquivalentTo(null);
+            result.CommandArgs.ShouldBeEquivalentTo(args.Skip(4).ToArray());
         }
 
         private ArgsDescriber CreateObject(IEnumerable<CommandDefinition> commandDefinitions)

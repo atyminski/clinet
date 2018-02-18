@@ -12,7 +12,7 @@ namespace Gevlee.Clinet.Core.Command
 		}
 
 		public CommandDefinition() : this(null, null)
-		{	
+		{
 		}
 		
 		public IDictionary<FlagDefinition, IFlag> Flags { get; }

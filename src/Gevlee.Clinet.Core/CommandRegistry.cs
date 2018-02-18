@@ -17,7 +17,7 @@ namespace Gevlee.Clinet.Core
 
         public CommandRegistry(ICommandFactory commandFactory)
         {
-            commandFactory = commandFactory;
+            this.commandFactory = commandFactory;
         }
         
         public void Register<TCommand>(Action<ICommandDefinitionBuilder> definitionBuildAction) where TCommand : ICommand
@@ -37,7 +37,6 @@ namespace Gevlee.Clinet.Core
             return commandFactory.Create(commands[definition]);
         }
 
-        public IEnumerable<CommandDefinition> Definitions => commands.Keys;
-        
+        public IEnumerable<CommandDefinition> Definitions => (IEnumerable<CommandDefinition>) commands.Keys;
     }
 }

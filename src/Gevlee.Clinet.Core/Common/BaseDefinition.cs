@@ -19,8 +19,8 @@ namespace Gevlee.Clinet.Core.Common
 
 		public bool NameEquals(string name)
 		{
-			return Short.Equals(name, StringComparison.OrdinalIgnoreCase) ||
-			       Long.Equals(name, StringComparison.OrdinalIgnoreCase);
+			return (Short?.Equals(name, StringComparison.OrdinalIgnoreCase)).GetValueOrDefault() ||
+			       (Long?.Equals(name, StringComparison.OrdinalIgnoreCase)).GetValueOrDefault();
 		}
 	}
 }
