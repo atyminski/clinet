@@ -12,6 +12,6 @@ namespace Gevlee.Clinet.Core.Flag
 		{	
 		}
 		
-		public bool CanHasValue { get; internal set; }
+		public bool CanHasValue { get; set; }
 	}
 }

@@ -1,10 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Gevlee.Clinet.Core.Command;
 using Gevlee.Clinet.Core.Flag;
 
 namespace Gevlee.Clinet.Core.Parsing
 {
+    public class InvalidFlagException : Exception
+    {
+        public InvalidFlagException()
+        {
+        }
+
+        public InvalidFlagException(string message) : base(message)
+        {
+        }
+
+        public InvalidFlagException(string message, Exception inner) : base(message, inner)
+        {
+        }
+    }
+    public class FlagValueNotFoundException : Exception
+    {
+        public FlagValueNotFoundException()
+        {
+        }
+
+        public FlagValueNotFoundException(string message) : base(message)
+        {
+        }
+
+        public FlagValueNotFoundException(string message, Exception inner) : base(message, inner)
+        {
+        }
+    }
     public class ArgsDescriber : IArgsDescriber
     {
         private static readonly char[] FlagPrefixes = {
@@ -32,12 +61,20 @@ namespace Gevlee.Clinet.Core.Parsing
                         if (flagDefinition.CanHasValue)
                         {
                             i++;
+                            if (i >= args.Length)
+                            {
+                                throw new FlagValueNotFoundException(flagName);
+                            }
                             result.FlagsValues.Add(flagName, args[i]);
                         }
                         else
                         {
                             result.FlagsValues.Add(flagName, null);
                         }
+                    }
+                    else
+                    {
+                        throw new InvalidFlagException(flagName);
                     }
                 }
                 else
