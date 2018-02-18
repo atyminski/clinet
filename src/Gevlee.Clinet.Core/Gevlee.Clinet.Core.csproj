@@ -13,7 +13,4 @@
     <RepositoryType>Git</RepositoryType>
     <AssemblyName>Clinet</AssemblyName>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
-  </ItemGroup>
 </Project>

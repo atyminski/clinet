@@ -18,7 +18,7 @@ namespace Gevlee.Clinet.Core.Tests.Flag
 				Value = value
 			});
 
-			((string)context.Data.Test).ShouldBeEquivalentTo(value);
+			((string)context.Data["Test"]).ShouldBeEquivalentTo(value);
 		}
 
 		private ContextDataFlag GetObject(string key)
