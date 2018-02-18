@@ -11,10 +11,10 @@ namespace Gevlee.Clinet.Core.Command
         
         ICommandDefinitionBuilder WithDescription(string description);
 
-        ICommandDefinitionBuilder WithFlag<TFlag>(Action<IFlagDefinitionBuilder> flagDefinitionBuildFunction)
+        ICommandDefinitionBuilder WithFlag<TFlag>(Action<IFlagDefinitionBuilder> flagDefinitionBuildFunction, IFlag instance)
             where TFlag : IFlag;
 
-        ICommandDefinitionBuilder WithFlag<TFlag>(FlagDefinition definition) where TFlag : IFlag;
+        ICommandDefinitionBuilder WithFlag<TFlag>(FlagDefinition definition, IFlag instance) where TFlag : IFlag;
         CommandDefinition Build();
     }
 }

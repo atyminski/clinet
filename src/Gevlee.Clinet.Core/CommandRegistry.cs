@@ -19,7 +19,7 @@ namespace Gevlee.Clinet.Core
         {
             this.commandFactory = commandFactory;
         }
-        
+
         public void Register<TCommand>(Action<ICommandDefinitionBuilder> definitionBuildAction) where TCommand : ICommand
         {
             var builder = new CommandDefinitionBuilder();

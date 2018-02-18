@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.Clinet.Core", "Gevlee.Clinet.Core\Gevlee.Clinet.Core.csproj", "{2ECE8365-10C4-4D80-B3B1-4EC4C391E3B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gevlee.Clinet.Core", "Gevlee.Clinet.Core\Gevlee.Clinet.Core.csproj", "{2ECE8365-10C4-4D80-B3B1-4EC4C391E3B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.Clinet.Core.Tests", "Gevlee.Clinet.Core.Tests\Gevlee.Clinet.Core.Tests.csproj", "{CBCF8809-66F2-426D-A4FB-4F90E771759D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gevlee.Clinet.Core.Tests", "Gevlee.Clinet.Core.Tests\Gevlee.Clinet.Core.Tests.csproj", "{CBCF8809-66F2-426D-A4FB-4F90E771759D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.Clinet.Sample", "Gevlee.Clinet.Sample\Gevlee.Clinet.Sample.csproj", "{35D63CA3-2B6C-4E3C-9BBB-D3329BFA8944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CBCF8809-66F2-426D-A4FB-4F90E771759D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCF8809-66F2-426D-A4FB-4F90E771759D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCF8809-66F2-426D-A4FB-4F90E771759D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D63CA3-2B6C-4E3C-9BBB-D3329BFA8944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D63CA3-2B6C-4E3C-9BBB-D3329BFA8944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D63CA3-2B6C-4E3C-9BBB-D3329BFA8944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D63CA3-2B6C-4E3C-9BBB-D3329BFA8944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

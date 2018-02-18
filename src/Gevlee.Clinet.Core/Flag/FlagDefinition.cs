@@ -4,6 +4,11 @@ namespace Gevlee.Clinet.Core.Flag
 {
 	public class FlagDefinition : BaseDefinition
 	{
+	    public FlagDefinition(string shortName, string longName, bool canHasValue) : base(shortName, longName)
+	    {
+	        CanHasValue = canHasValue;
+	    }
+
 		public FlagDefinition(string shortName, string longName) : base(shortName, longName)
 		{
 		}

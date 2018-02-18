@@ -8,6 +8,7 @@ namespace Gevlee.Clinet.Core.Command
 		public CommandContext()
 		{
 			Data = new Dictionary<string, object>();
+            Args = new string[0];
 			ShouldRun = true;
 		}
 

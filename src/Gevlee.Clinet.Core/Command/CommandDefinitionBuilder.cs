@@ -29,17 +29,17 @@ namespace Gevlee.Clinet.Core.Command
             return this;
         }
 
-        public ICommandDefinitionBuilder WithFlag<TFlag>(Action<IFlagDefinitionBuilder> flagDefinitionBuildFunction)
+        public ICommandDefinitionBuilder WithFlag<TFlag>(Action<IFlagDefinitionBuilder> flagDefinitionBuildFunction, IFlag instance)
             where TFlag : IFlag
         {
             var builder = new FlagDefinitionBuilder();
             flagDefinitionBuildFunction(builder);
-            return WithFlag<TFlag>(builder.Build());
+            return WithFlag<TFlag>(builder.Build(), instance);
         }
 
-        public ICommandDefinitionBuilder WithFlag<TFlag>(FlagDefinition definition) where TFlag : IFlag
+        public ICommandDefinitionBuilder WithFlag<TFlag>(FlagDefinition definition, IFlag instance) where TFlag : IFlag
         {
-            this.definition.Flags.Add(definition, Activator.CreateInstance<TFlag>());
+            this.definition.Flags.Add(definition, instance);
             return this;
         }
 

@@ -50,7 +50,8 @@ namespace Gevlee.Clinet.Core.Parsing
         public ArgsDescriptionResult Describe(string[] args)
         {
             var result = new ArgsDescriptionResult();
-            
+            var cmdArgs = new List<string>();
+
             for (var i = 0; i < args.Length; i++)
             {
                 if (IsFlag(args[i]))
@@ -86,11 +87,12 @@ namespace Gevlee.Clinet.Core.Parsing
                     }
                     else
                     {
-                        result.CommandArgs = args.Skip(i).ToArray();
+                        cmdArgs.Add(args[i]);
                     }
                 }
             }
 
+            result.CommandArgs = cmdArgs.ToArray();
             return result;
         }
 

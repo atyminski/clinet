@@ -8,6 +8,7 @@ namespace Gevlee.Clinet.Core.Parsing
         public ArgsDescriptionResult()
         {
             FlagsValues = new Dictionary<string, string>();
+            CommandArgs = new string[0];
         }
 
         public CommandDefinition CommandDefinition { get; set; }

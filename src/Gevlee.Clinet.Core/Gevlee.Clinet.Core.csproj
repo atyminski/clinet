@@ -13,4 +13,7 @@
     <RepositoryType>Git</RepositoryType>
     <AssemblyName>Clinet</AssemblyName>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Command\ICommandDefinitionBuilder.cs~RF531a901.TMP" />
+  </ItemGroup>
 </Project>

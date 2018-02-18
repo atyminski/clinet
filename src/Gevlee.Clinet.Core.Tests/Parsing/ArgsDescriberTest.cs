@@ -40,6 +40,21 @@ namespace Gevlee.Clinet.Core.Tests.Parsing
         }
 
         [Fact]
+        public void Describe_ShoultReturn_DescriptionResultWithCommandAndMultipleCommandArgs()
+        {
+            var args = new[] { "cmd", "cmdarg1", "cmdarg2" };
+            var commandDefinitions = new[]
+            {
+                new CommandDefinition("c", "cmd")
+            };
+
+            var result = CreateObject(commandDefinitions).Describe(args);
+
+            result.CommandDefinition.ShouldBeEquivalentTo(commandDefinitions[0]);
+            result.CommandArgs.ShouldBeEquivalentTo(args.Skip(1).ToArray());
+        }
+
+        [Fact]
         public void Describe_ShoultReturn_DescriptionResultWithCommandAndOneNonValueFlag()
         {
             var args = new[] { "testCommand", "-f"};

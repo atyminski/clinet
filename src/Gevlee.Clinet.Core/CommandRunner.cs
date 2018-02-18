@@ -1,7 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 using Gevlee.Clinet.Core.Command;
 using Gevlee.Clinet.Core.Flag;
-using Gevlee.Clinet.Core.Parsing;
 
 namespace Gevlee.Clinet.Core
 {
@@ -14,9 +15,12 @@ namespace Gevlee.Clinet.Core
             this.registry = registry;
         }
 
+        public string Header { get; set; }
+
         public void Run(string[] args)
         {
-            var descriptionResult = new ArgsDescriber(registry.Definitions).Describe(args);
+            DisplayHeader();
+            var descriptionResult = ObjectFactory.ArgDescriberFactory(registry.Definitions).Describe(args);
             var commandContext = new CommandContext
             {
                 Args = descriptionResult.CommandArgs,
@@ -30,12 +34,20 @@ namespace Gevlee.Clinet.Core
 
                 flag.Apply(commandContext, new FlagData
                 {
-                    Value = descriptionResultFlagsValue.Key
+                    Value = descriptionResultFlagsValue.Value
                 });
             }
 
             var command = registry.GetCommand(descriptionResult.CommandDefinition);
             command.Run(commandContext);
+        }
+
+        private void DisplayHeader()
+        {
+            if (!string.IsNullOrEmpty(Header))
+            {
+                Console.WriteLine(Header + Environment.NewLine);
+            }
         }
     }
 }
