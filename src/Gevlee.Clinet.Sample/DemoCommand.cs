@@ -20,6 +20,10 @@ namespace Gevlee.Clinet.Sample
             {
                 Console.WriteLine(arg);
             }
+            
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Binded DemoOptions:");
+            Console.WriteLine(commandContext.Bind<DemoOptions>());
         }
     }
 }

@@ -11,16 +11,22 @@ namespace Gevlee.Clinet.Sample
     {
         static void Main(string[] args)
         {
-            Debugger.Launch();
             var registry = new CommandRegistry();
             registry.Register<DemoCommand>(new CommandDefinition("run")
             {
                 Description = "Invokes DemoCommand",
-                Flags = { {new FlagDefinition("d", "demo-flag", true), new ContextDataFlag("demo-flag-data")}}
+                Flags =
+                {
+                    {new FlagDefinition("b", "bl", true), Flags.Bool(nameof(DemoOptions.Bool))},
+                    {new FlagDefinition("t", "date", true), Flags.DateTime(nameof(DemoOptions.Date))},
+                }
             });
 
-            var runner = new CommandRunner(registry);
-            runner.Header = $"{Assembly.GetExecutingAssembly().GetName().Name} {Assembly.GetExecutingAssembly().GetName().Version}";
+            var runner = new CommandRunner(registry)
+            {
+                Header =
+                    $"{Assembly.GetExecutingAssembly().GetName().Name} {Assembly.GetExecutingAssembly().GetName().Version}"
+            };
             runner.Run(args);
         }
     }

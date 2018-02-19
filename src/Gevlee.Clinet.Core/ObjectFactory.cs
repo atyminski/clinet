@@ -11,5 +11,10 @@ namespace Gevlee.Clinet.Core
     {
         public static Func<IEnumerable<CommandDefinition>, IArgsDescriber> ArgDescriberFactory { get; set; } =
             enumerable => new ArgsDescriber(enumerable);
+
+        public static IContextDataBinder CreateDataBinder()
+        {
+            return new SimpleContextDataBinder();
+        }
     }
 }

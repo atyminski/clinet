@@ -7,7 +7,7 @@ namespace Gevlee.Clinet.Core
     public class CommandRegistry : ICommandRegistry
     {
         private readonly ICommandFactory commandFactory;
-        private IDictionary<CommandDefinition, Type> commands;
+        private readonly IDictionary<CommandDefinition, Type> commands;
 
         public CommandRegistry()
         {
