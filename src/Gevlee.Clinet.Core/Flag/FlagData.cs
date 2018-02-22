@@ -2,7 +2,7 @@
 {
 	public class FlagData
 	{
-	    public string FlagName { get; set; }
+		public string FlagName { get; set; }
 
 		public string Value { get; set; }
 

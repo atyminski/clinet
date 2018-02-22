@@ -4,13 +4,12 @@ namespace Gevlee.Clinet.Core.Common
 {
 	public abstract class BaseDefinition
 	{
-
 		protected BaseDefinition(string shortName, string longName)
 		{
 			Short = shortName;
 			Long = longName;
 		}
-		
+
 		public string Short { get; set; }
 
 		public string Long { get; set; }

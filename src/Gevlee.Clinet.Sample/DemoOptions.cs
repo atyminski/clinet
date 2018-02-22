@@ -2,14 +2,14 @@
 
 namespace Gevlee.Clinet.Sample
 {
-    public class DemoOptions
-    {
-        public DateTime Date { get; set; }
-        public bool Bool { get; set; }
+	public class DemoOptions
+	{
+		public DateTime Date { get; set; }
+		public bool Bool { get; set; }
 
-        public override string ToString()
-        {
-            return $"Date: {Date}, Bool: {Bool}";
-        }
-    }
+		public override string ToString()
+		{
+			return $"Date: {Date}, Bool: {Bool}";
+		}
+	}
 }

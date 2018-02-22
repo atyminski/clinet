@@ -1,7 +1,7 @@
 ﻿namespace Gevlee.Clinet.Core.Parsing
 {
-    public interface IArgsDescriber
-    {   
-        ArgsDescriptionResult Describe(string[] args);
-    }
+	public interface IArgsDescriber
+	{
+		ArgsDescriptionResult Describe(string[] args);
+	}
 }
